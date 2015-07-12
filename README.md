@@ -58,9 +58,9 @@ The first feature would produce the following total count for each word:
 
 For the second feature, the number of unique words in each tweet is 11, 14, and 17 (since the words 'is', 'big', and 'for' appear twice in the third tweet).  This means that the set of unique words per tweet is {11} after the first tweet arrives, is {11, 14} after the second tweet arrives, and is {11, 14, 17} after all three tweets arrive.  Thus, the second feature would produce the following output:
 
-	11
-	12.5
-	14
+	11.00
+	12.50
+	14.00
 
 Recall that the median of a set with an even number of items is the mean of the two middle elements (e.g. the median of {11, 14} is 12.5). In this challenge we have made a few assumptions to make things simpler:
 
@@ -143,6 +143,9 @@ No, you may assume that all of the characters are conventional, ASCII characters
 
 * *Should I check if the files in the input directory are text files or non-text files(binary)?*  
 No, for simplicity you may assume that all of the files in the input directory are standard text files.  
+
+* *Do I need to account for empty tweets?*  
+No, for simplicity you may assume that all the tweets contain at least one word.  
 
 * *Do I need separate programs for different features?*  
 You may use a single combined program or several programs, as long as they are all executed by the `run.sh` script.
