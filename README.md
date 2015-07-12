@@ -136,7 +136,7 @@ No, your solution doesn't necessarily need to include multi-threading - there ar
 Please try to match the above example, by listing the words in **alphabetical** order according the the ASCII ordering, with whitespace between the word and count, and each word separated by a newline.
 
 * *What should the precision for the output of the median be?*  
-For simplicity, please output the running median as a double with only 2 digits after the decimal (i.e. 2.00 instead of 2).  In the event that you need to round, simply truncate the answer (i.e. 2/3 should be 0.66).  The median for each new tweet of text should be separated by newlines as shown in the example above.
+For simplicity, please output the running median as a double with only 1 digit after the decimal (i.e. 2.0 instead of 2).  The median for each new tweet of text should be separated by newlines as shown in the example above.
 
 * *Do I need to account for complicated Unicode characters?*  
 No, you may assume that all of the characters are conventional, ASCII characters.
