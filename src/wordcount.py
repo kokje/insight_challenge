@@ -9,10 +9,10 @@ def setupAndTeardown():
 		return 1
 	return 0
 
-def countOccurences(numprocs,seekpos):
+def countOccurences(inputfile,numprocs,seekpos):
 	for i in range(0,numprocs):
 		try:
-			subprocess.check_call('python ./src/count.py ./tweet_input/tweets.txt ./tweet_output/intermediate out'+ str(i) +'.txt'+' '+ str(seekpos), shell=True)
+			subprocess.check_call('python ./src/count.py '+inputfile+' ./tweet_output/intermediate out'+ str(i) +'.txt'+' '+ str(seekpos), shell=True)
 			seekpos += seekpos
 		except subprocess.CalledProcessError, e:
 			print "Process", i," failed"
@@ -41,10 +41,16 @@ def combineIntermediateOutput(shards):
 if __name__=='__main__':
 	if len(sys.argv) != 4:
 		print "Insufficient input parameters"
+	inputfile = sys.argv[1]
+	# Use size of the input file and the number of processes to determine positions to read from in the file
+	size = os.path.getsize(inputfile)
 	numprocs = 3
+	seekpos = size/numprocs
+
+
 	shards = ["characters","numbers","a_f","k_r","s_z"]
 	assert setupAndTeardown() == 0
-	assert countOccurences(3,0) == 0
+	assert countOccurences(inputfile,numprocs,seekpos) == 0
 	assert sortIntermediates(shards) == 0
 	assert combineIntermediateOutput(shards) == 0
 	
