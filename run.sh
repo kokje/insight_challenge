@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
+python ./src/wordcount.py ./tweet_input ./tweet_output ./src/wordcount.ini
 
-# example of the run script for running the word count
-
-# I'll execute my programs, with the input directory tweet_input and output the files in the directory tweet_output
-python ./src/words_tweeted.py ./tweet_input/tweets.txt ./tweet_output/ft1.txt
-python ./src/median_unique.py ./tweet_input/tweets.txt ./tweet_output/ft2.txt
-
-
-
+#Minimum number of unique words in a tweet is 1 and maximum number of unique words in a tweet is 140. Therefore we can represent count of uniques words in an in-memory hashtable
+#python ./src/median.py ./tweet_input/tweets.txt ./tweet_output/ft2.txt
