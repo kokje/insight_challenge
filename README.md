@@ -24,11 +24,11 @@ Performance:
 Wordcount feature performance, further testing was done beyond 45k tweets by concatenating these files but results can be skewed as sorts perform better since data is duplicated.
 
 Time taken - Size - No. of Tweets
-0:00:00.283361 - 340B (3 Tweets)
-0:00:02.129339 - 371K (~3200 Tweets)
-0:00:09.382707 - 1.9M (~8000 Tweets)
-0:00:15.279638 - 3.5M (~30k Tweets)
-0:00:21.297215 - 5.4M (~45k Tweets)
+* 0:00:00.283361 - 340B (3 Tweets)
+* 0:00:02.129339 - 371K (~3200 Tweets)
+* 0:00:09.382707 - 1.9M (~8000 Tweets)
+* 0:00:15.279638 - 3.5M (~30k Tweets)
+* 0:00:21.297215 - 5.4M (~45k Tweets)
 
 
  
