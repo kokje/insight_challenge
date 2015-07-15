@@ -15,8 +15,10 @@ Additionally since the input is random, I chose to go with python's default sort
 
 The second feature has streaming input. The traditional way of computing median is to sort the input and then count the value that splits the data equally. However considering the characteristics of our input, the maximum number of unique words in a tweet is 140 due to twitter's limit on character size. We can use this to our advantage and only use the frequencies of incoming data and store them in a hashtable instead of using a large list. 
 
-Usage:
-The run.sh script contains calls to each feature. The first argument for wordcount is the input file, the second is the path of the output folder and the third is the configuration file. For the median feature, the first argument is the input file and the second is the output file.
+## Usage
+The run.sh script contains calls to each feature. The first argument for wordcount is the input file, the second is the path of the output folder and the third is the configuration file.
+For the median feature, the first argument is the input file and the second is the output file.
+
 
  
 
