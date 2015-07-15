@@ -9,11 +9,12 @@ def setupAndTeardown():
 		return 1
 	return 0
 
-def countOccurences(inputfile,numprocs,seekpos):
+def countOccurences(inputfile,numprocs,seeklength):
+	start = 0
 	for i in range(0,numprocs):
 		try:
-			subprocess.check_call('python ./src/count.py '+inputfile+' ./tweet_output/intermediate out'+ str(i) +'.txt'+' '+ str(seekpos), shell=True)
-			seekpos += seekpos
+			subprocess.check_call('python ./src/count.py '+inputfile+' ./tweet_output/intermediate out'+ str(i) +'.txt'+' '+ str(start), shell=True)
+			start += seeklength
 		except subprocess.CalledProcessError, e:
 			print "Process", i," failed"
 			return 1
@@ -45,12 +46,13 @@ if __name__=='__main__':
 	# Use size of the input file and the number of processes to determine positions to read from in the file
 	size = os.path.getsize(inputfile)
 	numprocs = 3
-	seekpos = size/numprocs
+	seeklength = size/numprocs
 
-
+	#Shards are currently hardcoded
+	#TODO: Incorporate dynamic shards which are setup using configuration script
 	shards = ["characters","numbers","a_f","k_r","s_z"]
 	assert setupAndTeardown() == 0
-	assert countOccurences(inputfile,numprocs,seekpos) == 0
+	assert countOccurences(inputfile,numprocs,seeklength) == 0
 	assert sortIntermediates(shards) == 0
 	assert combineIntermediateOutput(shards) == 0
 	
